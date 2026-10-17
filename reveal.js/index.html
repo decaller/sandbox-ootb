@@ -183,7 +183,7 @@
 				<!-- Slide 4: Interactive Simulation (Luas Geometri vs Integral) -->
 				<section data-background-color="#0b0f19" class="slide-simulasi">
 					<iframe 
-						src="simulasi.html" 
+						data-src="simulasi.html" 
 						class="simulasi-iframe" 
 						allowfullscreen
 						loading="lazy"
@@ -1153,7 +1153,7 @@
 								</a>
 							</div>
 							<div class="iframe-col-body">
-								<iframe src="https://wikipkn.insanmustaqbal.or.id" class="iframe-col-frame" allow="clipboard-write; fullscreen" loading="lazy"></iframe>
+								<iframe data-src="https://wikipkn.insanmustaqbal.or.id" class="iframe-col-frame" allow="clipboard-write; fullscreen" loading="lazy"></iframe>
 							</div>
 						</div>
 
@@ -1170,7 +1170,7 @@
 								</a>
 							</div>
 							<div class="iframe-col-body">
-								<iframe src="https://decaller.github.io/sqlite-vector-video-db/" class="iframe-col-frame" allow="clipboard-write; fullscreen" loading="lazy"></iframe>
+								<iframe data-src="https://decaller.github.io/sqlite-vector-video-db/" class="iframe-col-frame" allow="clipboard-write; fullscreen" loading="lazy"></iframe>
 							</div>
 						</div>
 					</div>
@@ -1192,7 +1192,7 @@
 								</a>
 							</div>
 							<div class="iframe-col-body">
-								<iframe src="https://tb40.insanmustaqbal.or.id" class="iframe-col-frame" allow="clipboard-write; fullscreen" loading="lazy"></iframe>
+								<iframe data-src="https://tb40.insanmustaqbal.or.id" class="iframe-col-frame" allow="clipboard-write; fullscreen" loading="lazy"></iframe>
 							</div>
 						</div>
 
@@ -1251,9 +1251,6 @@
 		</div>
 
 		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
 		<script>
 			Reveal.initialize({
 				hash: true,
@@ -1265,7 +1262,6 @@
 				transition: 'fade',
 				transitionSpeed: 'fast',
 				backgroundTransition: 'fade',
-				plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
 			});
 		</script>
 	</body>
