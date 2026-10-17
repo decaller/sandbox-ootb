@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="id" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Luas: Rumus Biasa vs Integral</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19;
+            color: #f1f5f9;
+        }
+        .font-mono-math {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        input[type="range"] {
+            -webkit-appearance: none;
+            appearance: none;
+            background: transparent;
+            cursor: pointer;
+        }
+        input[type="range"]::-webkit-slider-runnable-track {
+            background: #1e293b;
+            height: 0.5rem;
+            border-radius: 9999px;
+            border: 1px solid #334155;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            margin-top: -5px;
+            background-color: #6366f1;
+            height: 1.15rem;
+            width: 1.15rem;
+            border-radius: 9999px;
+            border: 2px solid #e0e7ff;
+            box-shadow: 0 0 10px rgba(99, 102, 241, 0.6);
+            transition: transform 0.15s ease, background-color 0.15s ease;
+        }
+        input[type="range"]::-webkit-slider-thumb:hover {
+            transform: scale(1.15);
+            background-color: #818cf8;
+        }
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(51, 65, 85, 0.7);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white">
+
+    <header class="border-b border-slate-800/80 bg-slate-900/60 backdrop-blur-md sticky top-0 z-30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div>
+                <div class="flex items-center gap-2.5">
+                    <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-indigo-500 to-emerald-500 flex items-center justify-center shadow-lg shadow-indigo-500/20 font-mono-math font-bold text-lg text-white">
+                        ∫
+                    </div>
+                    <h1 class="text-xl sm:text-2xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-200 to-indigo-300 bg-clip-text text-transparent">
+                        Laboratorium Visual: Geometri vs Integral
+                    </h1>
+                </div>
+                <p class="text-xs sm:text-sm text-slate-400 mt-1">
+                    Bandingkan cara menghitung luas dengan rumus biasa dan pembagian pias integral ($\int_a^b f(x)\,dx$)
+                </p>
+            </div>
+
+            <!-- Shape Selector Tabs -->
+            <div class="flex flex-wrap items-center gap-1.5 bg-slate-950/90 p-1.5 rounded-2xl border border-slate-800">
+                <button onclick="setShape('rectangle')" id="tab-rectangle" class="shape-tab flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/></svg>
+                    <span>Kotak</span>
+                </button>
+                <button onclick="setShape('triangle')" id="tab-triangle" class="shape-tab flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 19 21 19 21 5"/></svg>
+                    <span>Segitiga</span>
+                </button>
+                <button onclick="setShape('irregular')" id="tab-irregular" class="shape-tab flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 19V9c4-5 8 4 12-1s6-2 6-2v13H3z"/></svg>
+                    <span>Tidak Beraturan (Kurva)</span>
+                </button>
+                <button onclick="setShape('custom')" id="tab-custom" class="shape-tab flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all">
+                    <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="12" r="2"/><circle cx="12" cy="7" r="2"/><circle cx="18" cy="14" r="2"/><path d="M3 19v-4l3-3 6-5 6 7 3-2v7H3z"/></svg>
+                    <span>Bentuk Bebas (Ubah Titik)</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl w-full mx-auto px-4 sm:px-6 py-6 flex-1 grid grid-cols-1 lg:grid-cols-12 gap-6">
+        
+        <!-- Left/Main Column: Canvas & Mathematical Proof -->
+        <div class="lg:col-span-7 flex flex-col gap-6">
+            
+            <!-- Canvas Card -->
+            <div class="glass-panel rounded-2xl p-4 sm:p-5 shadow-xl flex flex-col gap-3">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                    <div class="flex items-center gap-2">
+                        <span class="w-2.5 h-2.5 rounded-full bg-indigo-400 animate-pulse"></span>
+                        <h2 id="canvas-title" class="text-sm sm:text-base font-bold text-slate-100">
+                            Visualisasi Grafik & Pias Integral
+                        </h2>
+                    </div>
+                    <div id="hover-info" class="text-xs font-mono-math bg-slate-900/90 border border-slate-700/80 text-indigo-300 px-3 py-1.5 rounded-lg">
+                        Arahkan kursor / sentuh grafik untuk detail pias
+                    </div>
+                </div>
+
+                <!-- Responsive Canvas Wrapper -->
+                <div class="relative w-full h-[320px] sm:h-[380px] bg-slate-950 rounded-xl border border-slate-800 overflow-hidden">
+                    <canvas id="simCanvas" class="w-full h-full block cursor-crosshair touch-none"></canvas>
+                    
+                    <!-- Floating Custom Mode Hint -->
+                    <div id="custom-hint" class="hidden absolute top-3 left-3 bg-amber-500/20 border border-amber-400/40 text-amber-200 text-xs px-3 py-1.5 rounded-lg backdrop-blur-md pointer-events-none">
+                        💡 Geser titik-titik kuning di atas kurva untuk mengubah bentuk sesuka hati!
+                    </div>
+                </div>
+
+                <!-- Legend -->
+                <div class="flex flex-wrap items-center justify-between gap-3 pt-1 text-xs text-slate-400">
+                    <div class="flex flex-wrap items-center gap-4">
+                        <div class="flex items-center gap-1.5">
+                            <span class="w-3.5 h-1 rounded-full bg-emerald-400 inline-block"></span>
+                            <span>Batas Bentuk Asli $f(x)$</span>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="w-3.5 h-3.5 rounded-sm bg-indigo-500/40 border border-indigo-400 inline-block"></span>
+                            <span>Pias Integral ($\Delta x$)</span>
+                        </div>
+                        <div class="flex items-center gap-1.5">
+                            <span class="w-3.5 h-3.5 rounded-sm bg-emerald-500/15 border border-emerald-500/40 border-dashed inline-block"></span>
+                            <span>Luas Eksak</span>
+                        </div>
+                    </div>
+                    <div id="slice-width-badge" class="font-mono-math text-slate-300 bg-slate-800/80 px-2.5 py-1 rounded-md">
+                        Lebar 1 Pias (Δx) = 0.50
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-panel rounded-2xl p-4 sm:p-5 shadow-xl">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-base font-bold text-white flex items-center gap-2">
+                        <svg class="w-5 h-5 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        </svg>
+                        Perbandingan Perhitungan Rumus Biasa vs Integral
+                    </h3>
+                    <span id="function-badge" class="text-xs font-mono-math bg-indigo-950/80 text-indigo-300 border border-indigo-700/50 px-2.5 py-1 rounded-lg">
+                        f(x) = 5
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Standard Formula Box -->
+                    <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-4 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-md border border-emerald-500/20">
+                                    1. Rumus Geometri Biasa
+                                </span>
+                                <span id="geom-status-badge" class="text-[11px] text-slate-400">Tersedia</span>
+                            </div>
+                            <div id="math-standard-steps" class="mt-3 space-y-2 text-xs sm:text-sm text-slate-300 font-mono-math leading-relaxed">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between">
+                            <span class="text-xs text-slate-400">Hasil Rumus Biasa:</span>
+                            <span id="math-standard-result" class="text-base font-bold font-mono-math text-emerald-400">40.00 satuan²</span>
+                        </div>
+                    </div>
+
+                    <!-- Calculus Integral Formula Box -->
+                    <div class="bg-slate-900/90 border border-slate-800 rounded-xl p-4 flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-xs font-bold uppercase tracking-wider text-indigo-400 bg-indigo-500/10 px-2.5 py-1 rounded-md border border-indigo-500/20">
+                                    2. Rumus Integral Tentu
+                                </span>
+                                <span class="text-[11px] text-indigo-300">Aturan Pangkat</span>
+                            </div>
+                            <div id="math-integral-steps" class="mt-3 space-y-2 text-xs sm:text-sm text-slate-300 font-mono-math leading-relaxed">
+                                <!-- Populated by JS -->
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between">
+                            <span class="text-xs text-slate-400">Hasil Integral Eksak:</span>
+                            <span id="math-integral-result" class="text-base font-bold font-mono-math text-indigo-400">40.00 satuan²</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lg:col-span-5 flex flex-col gap-6">
+            
+            <!-- 3 Live Scoreboard Cards -->
+            <div class="grid grid-cols-3 gap-3">
+                <!-- Card 1: Rumus Biasa -->
+                <div class="glass-panel rounded-2xl p-3.5 border-t-2 border-t-emerald-500 flex flex-col justify-between">
+                    <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">Rumus Biasa</span>
+                    <div id="score-standard" class="text-lg sm:text-2xl font-extrabold font-mono-math text-emerald-400 my-1">
+                        40.00
+                    </div>
+                    <span id="score-standard-sub" class="text-[11px] text-slate-400">Eksak Geometri</span>
+                </div>
+
+                <!-- Card 2: Pendekatan Pias (Riemann) -->
+                <div class="glass-panel rounded-2xl p-3.5 border-t-2 border-t-indigo-500 flex flex-col justify-between">
+                    <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">Total Pias (∑)</span>
+                    <div id="score-riemann" class="text-lg sm:text-2xl font-extrabold font-mono-math text-indigo-400 my-1">
+                        40.00
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <span id="score-error" class="text-[11px] font-mono-math px-1.5 py-0.5 rounded bg-indigo-500/20 text-indigo-300">
+                            Galat: 0.0%
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Card 3: Integral Eksak -->
+                <div class="glass-panel rounded-2xl p-3.5 border-t-2 border-t-amber-400 flex flex-col justify-between">
+                    <span class="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">Integral (∫)</span>
+                    <div id="score-exact" class="text-lg sm:text-2xl font-extrabold font-mono-math text-amber-300 my-1">
+                        40.00
+                    </div>
+                    <span class="text-[11px] text-slate-400">Batas n → ∞</span>
+                </div>
+            </div>
+
+            <!-- Controls Panel -->
+            <div class="glass-panel rounded-2xl p-4 sm:p-5 shadow-xl flex flex-col gap-5">
+                <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                    <h3 class="text-base font-bold text-white flex items-center gap-2">
+                        <svg class="w-5 h-5 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                        </svg>
+                        Panel Kontrol Parameter
+                    </h3>
+                    <button onclick="toggleAnimation()" id="btn-animate" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-semibold shadow-lg shadow-indigo-600/30 transition-all">
+                        <span id="anim-icon">▶</span>
+                        <span id="anim-text">Animasi n → 100</span>
+                    </button>
+                </div>
+
+                <!-- Number of Partitions (n) Slider -->
+                <div class="space-y-2">
+                    <div class="flex justify-between items-center">
+                        <label for="slider-n" class="text-xs sm:text-sm font-medium text-slate-200">
+                            Jumlah Pias / Partisi Integral (<span class="font-mono-math text-indigo-400 font-bold">n</span>)
+                        </label>
+                        <span id="val-n" class="text-xs sm:text-sm font-mono-math font-bold bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 px-2.5 py-0.5 rounded-md">
+                            10 pias
+                        </span>
+                    </div>
+                    <input id="slider-n" type="range" min="1" max="100" value="10" class="w-full" oninput="updateSimulation()">
+                    <div class="flex items-center justify-between gap-1.5 pt-1">
+                        <button onclick="setQuickN(2)" class="flex-1 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono-math text-slate-300 transition">n = 2</button>
+                        <button onclick="setQuickN(5)" class="flex-1 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono-math text-slate-300 transition">n = 5</button>
+                        <button onclick="setQuickN(15)" class="flex-1 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono-math text-slate-300 transition">n = 15</button>
+                        <button onclick="setQuickN(50)" class="flex-1 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono-math text-slate-300 transition">n = 50</button>
+                        <button onclick="setQuickN(100)" class="flex-1 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-mono-math text-slate-300 transition">n = 100</button>
+                    </div>
+                </div>
+
+                <!-- Riemann Method Selector -->
+                <div class="space-y-2">
+                    <label class="text-xs sm:text-sm font-medium text-slate-200 block">
+                        Metode Pendekatan Pias
+                    </label>
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-1.5 bg-slate-950 p-1.5 rounded-xl border border-slate-800">
+                        <button onclick="setMethod('left')" id="method-left" class="method-btn py-1.5 px-2 rounded-lg text-xs font-medium transition">
+                            Kiri (Left)
+                        </button>
+                        <button onclick="setMethod('midpoint')" id="method-midpoint" class="method-btn py-1.5 px-2 rounded-lg text-xs font-medium transition">
+                            Tengah (Mid)
+                        </button>
+                        <button onclick="setMethod('right')" id="method-right" class="method-btn py-1.5 px-2 rounded-lg text-xs font-medium transition">
+                            Kanan (Right)
+                        </button>
+                        <button onclick="setMethod('trapezoid')" id="method-trapezoid" class="method-btn py-1.5 px-2 rounded-lg text-xs font-medium transition">
+                            Trapesium
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Dimension Sliders: Base (b) and Height (h) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 border-t border-slate-800/80">
+                    <div class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <label for="slider-b" class="text-xs font-medium text-slate-300">
+                                Panjang Alas / Batas (<span class="font-mono-math text-emerald-400">b</span>)
+                            </label>
+                            <span id="val-b" class="text-xs font-mono-math font-bold text-emerald-400">8 satuan</span>
+                        </div>
+                        <input id="slider-b" type="range" min="2" max="10" step="0.5" value="8" class="w-full" oninput="updateSimulation()">
+                    </div>
+
+                    <div id="height-control-wrapper" class="space-y-2">
+                        <div class="flex justify-between items-center">
+                            <label for="slider-h" id="label-h" class="text-xs font-medium text-slate-300">
+                                Tinggi (<span class="font-mono-math text-emerald-400">t</span>)
+                            </label>
+                            <span id="val-h" class="text-xs font-mono-math font-bold text-emerald-400">5 satuan</span>
+                        </div>
+                        <input id="slider-h" type="range" min="2" max="7" step="0.5" value="5" class="w-full" oninput="updateSimulation()">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Educational Insight Box -->
+            <div class="glass-panel rounded-2xl p-4 sm:p-5 border-l-4 border-l-indigo-500 flex flex-col gap-2">
+                <div class="flex items-center gap-2 text-indigo-300 font-bold text-sm">
+                    <svg class="w-5 h-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span id="insight-title">Mengapa Hasilnya Sama?</span>
+                </div>
+                <p id="insight-body" class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    <!-- Populated dynamically by JS -->
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const state = {
+            shape: 'triangle', // 'rectangle', 'triangle', 'irregular', 'custom'
+            method: 'left',    // 'left', 'midpoint', 'right', 'trapezoid'
+            n: 10,             // number of slices (1 to 100)
+            b: 8,              // base width / upper limit x = b
+            h: 5,              // height parameter
+            hoveredSlice: -1,  // index of slice currently hovered
+            mouseX: null,
+            mouseY: null,
+            animating: false,
+            animTimer: null,
+            // Normalized control points (0 to 1 in x, height in y) for 'custom' shape
+            customPoints: [4.0, 6.2, 3.2, 6.8, 4.5],
+            draggingPointIndex: -1
+        };
+
+        const canvas = document.getElementById('simCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Evaluates height f(x) at any position x in [0, b]
+        function evaluateFunction(x, shape = state.shape, b = state.b, h = state.h) {
+            if (shape === 'rectangle') {
+                return h;
+            } else if (shape === 'triangle') {
+                return (h / b) * x;
+            } else if (shape === 'irregular') {
+                // Polynomial curve: f(x) = -0.03x^3 + 0.36x^2 - 0.8x + h
+                return -0.03 * Math.pow(x, 3) + 0.36 * Math.pow(x, 2) - 0.8 * x + h;
+            } else if (shape === 'custom') {
+                // Smooth cosine interpolation between the 5 draggable control points across [0, b]
+                const pts = state.customPoints;
+                const numSegments = pts.length - 1;
+                const tScaled = Math.max(0, Math.min(1, x / b)) * numSegments;
+                const idx = Math.min(numSegments - 1, Math.floor(tScaled));
+                const frac = tScaled - idx;
+                const mu = (1 - Math.cos(frac * Math.PI)) / 2;
+                return pts[idx] * (1 - mu) + pts[idx + 1] * mu;
+            }
+            return 0;
+        }
+
+        // Calculates the exact area using Fundamental Theorem of Calculus
+        function calculateExactIntegral(shape = state.shape, b = state.b, h = state.h) {
+            if (shape === 'rectangle') {
+                // ∫ h dx from 0 to b = h * b
+                return h * b;
+            } else if (shape === 'triangle') {
+                // ∫ (h/b)x dx from 0 to b = 1/2 * b * h
+                return 0.5 * b * h;
+            } else if (shape === 'irregular') {
+                // Antiderivative F(x) = -0.0075 x^4 + 0.12 x^3 - 0.4 x^2 + h*x
+                return -0.0075 * Math.pow(b, 4) + 0.12 * Math.pow(b, 3) - 0.4 * Math.pow(b, 2) + h * b;
+            } else if (shape === 'custom') {
+                // High-resolution Simpson's rule (1000 sub-intervals) for user-sculpted curve
+                const steps = 1000;
+                const dx = b / steps;
+                let sum = evaluateFunction(0, 'custom', b, h) + evaluateFunction(b, 'custom', b, h);
+                for (let i = 1; i < steps; i++) {
+                    const x = i * dx;
+                    sum += evaluateFunction(x, 'custom', b, h) * (i % 2 === 0 ? 2 : 4);
+                }
+                return (dx / 3) * sum;
+            }
+            return 0;
+        }
+
+        function calculateRiemannSum() {
+            const { n, b, method } = state;
+            const dx = b / n;
+            let totalArea = 0;
+            const slices = [];
+
+            for (let i = 0; i < n; i++) {
+                const x0 = i * dx;
+                const x1 = (i + 1) * dx;
+                let sampleX = x0;
+                let yLeft = evaluateFunction(x0);
+                let yRight = evaluateFunction(x1);
+                let sliceHeight = yLeft;
+                let sliceArea = 0;
+
+                if (method === 'left') {
+                    sampleX = x0;
+                    sliceHeight = yLeft;
+                    sliceArea = sliceHeight * dx;
+                } else if (method === 'right') {
+                    sampleX = x1;
+                    sliceHeight = yRight;
+                    sliceArea = sliceHeight * dx;
+                } else if (method === 'midpoint') {
+                    sampleX = (x0 + x1) / 2;
+                    sliceHeight = evaluateFunction(sampleX);
+                    sliceArea = sliceHeight * dx;
+                } else if (method === 'trapezoid') {
+                    sampleX = (x0 + x1) / 2;
+                    sliceHeight = (yLeft + yRight) / 2;
+                    sliceArea = sliceHeight * dx;
+                }
+
+                totalArea += sliceArea;
+                slices.push({
+                    index: i,
+                    x0,
+                    x1,
+                    sampleX,
+                    yLeft,
+                    yRight,
+                    height: sliceHeight,
+                    area: sliceArea
+                });
+            }
+
+            return { totalArea, dx, slices };
+        }
+
+        function setShape(shapeName) {
+            state.shape = shapeName;
+            state.hoveredSlice = -1;
+
+            // Update active styling on shape buttons
+            const tabs = ['rectangle', 'triangle', 'irregular', 'custom'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`tab-${t}`);
+                if (t === shapeName) {
+                    btn.className = 'shape-tab flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-indigo-600 text-white shadow-lg shadow-indigo-600/30';
+                } else {
+                    btn.className = 'shape-tab flex items-center gap-2 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all text-slate-400 hover:text-slate-200 hover:bg-slate-800/60';
+                }
+            });
+
+            // Show/hide custom mode controls
+            const customHint = document.getElementById('custom-hint');
+            const heightWrapper = document.getElementById('height-control-wrapper');
+            const labelH = document.getElementById('label-h');
+
+            if (shapeName === 'custom') {
+                customHint.classList.remove('hidden');
+                heightWrapper.classList.add('opacity-40', 'pointer-events-none');
+            } else {
+                customHint.classList.add('hidden');
+                heightWrapper.classList.remove('opacity-40', 'pointer-events-none');
+            }
+
+            if (shapeName === 'irregular') {
+                labelH.innerHTML = 'Tinggi Awal (<span class="font-mono-math text-emerald-400">t</span>)';
+                if (state.h < 3) {
+                    state.h = 4;
+                    document.getElementById('slider-h').value = 4;
+                }
+            } else {
+                labelH.innerHTML = 'Tinggi (<span class="font-mono-math text-emerald-400">t</span>)';
+            }
+
+            updateSimulation();
+        }
+
+        function setMethod(methodName) {
+            state.method = methodName;
+            const methods = ['left', 'midpoint', 'right', 'trapezoid'];
+            methods.forEach(m => {
+                const btn = document.getElementById(`method-${m}`);
+                if (m === methodName) {
+                    btn.className = 'method-btn py-1.5 px-2 rounded-lg text-xs font-semibold transition bg-indigo-600 text-white shadow';
+                } else {
+                    btn.className = 'method-btn py-1.5 px-2 rounded-lg text-xs font-medium transition text-slate-400 hover:text-slate-200';
+                }
+            });
+            updateSimulation();
+        }
+
+        function setQuickN(val) {
+            stopAnimation();
+            document.getElementById('slider-n').value = val;
+            updateSimulation();
+        }
+
+        function toggleAnimation() {
+            if (state.animating) {
+                stopAnimation();
+            } else {
+                state.animating = true;
+                document.getElementById('anim-icon').textContent = '⏸';
+                document.getElementById('anim-text').textContent = 'Jeda Animasi';
+                const sliderN = document.getElementById('slider-n');
+                if (parseInt(sliderN.value) >= 100) {
+                    sliderN.value = 1;
+                }
+                state.animTimer = setInterval(() => {
+                    let cur = parseInt(sliderN.value);
+                    if (cur < 100) {
+                        cur += cur < 20 ? 1 : 2;
+                        sliderN.value = Math.min(100, cur);
+                        updateSimulation();
+                    } else {
+                        stopAnimation();
+                    }
+                }, 80);
+            }
+        }
+
+        function stopAnimation() {
+            state.animating = false;
+            if (state.animTimer) clearInterval(state.animTimer);
+            document.getElementById('anim-icon').textContent = '▶';
+            document.getElementById('anim-text').textContent = 'Animasi n → 100';
+        }
+
+        function updateSimulation() {
+            state.n = parseInt(document.getElementById('slider-n').value);
+            state.b = parseFloat(document.getElementById('slider-b').value);
+            state.h = parseFloat(document.getElementById('slider-h').value);
+
+            // Update slider labels
+            document.getElementById('val-n').textContent = `${state.n} pias`;
+            document.getElementById('val-b').textContent = `${state.b} satuan`;
+            document.getElementById('val-h').textContent = `${state.h} satuan`;
+
+            const exactArea = calculateExactIntegral();
+            const riemann = calculateRiemannSum();
+            const errorPct = exactArea > 0 ? (Math.abs(riemann.totalArea - exactArea) / exactArea) * 100 : 0;
+
+            document.getElementById('slice-width-badge').textContent = `Lebar 1 Pias (Δx) = ${riemann.dx.toFixed(3)}`;
+
+            // Update Scoreboard
+            document.getElementById('score-riemann').textContent = riemann.totalArea.toFixed(2);
+            document.getElementById('score-exact').textContent = exactArea.toFixed(2);
+            document.getElementById('score-error').textContent = `Galat: ${errorPct.toFixed(2)}%`;
+
+            // Update Formula Breakdown & Insights per shape
+            const stdSteps = document.getElementById('math-standard-steps');
+            const stdResult = document.getElementById('math-standard-result');
+            const intSteps = document.getElementById('math-integral-steps');
+            const intResult = document.getElementById('math-integral-result');
+            const funcBadge = document.getElementById('function-badge');
+            const geomStatus = document.getElementById('geom-status-badge');
+            const scoreStandard = document.getElementById('score-standard');
+            const scoreStandardSub = document.getElementById('score-standard-sub');
+            const insightTitle = document.getElementById('insight-title');
+            const insightBody = document.getElementById('insight-body');
+
+            const { b, h, n } = state;
+
+            if (state.shape === 'rectangle') {
+                funcBadge.textContent = `f(x) = ${h}`;
+                geomStatus.textContent = 'Rumus Eksak';
+                geomStatus.className = 'text-[11px] text-emerald-400 font-medium';
+                scoreStandard.textContent = exactArea.toFixed(2);
+                scoreStandardSub.textContent = 'L = p × l';
+
+                stdSteps.innerHTML = `
+                    <div>Rumus Persegi Panjang:</div>
+                    <div class="text-white">L = alas × tinggi</div>
+                    <div class="text-emerald-300">L = ${b} × ${h} = <b>${exactArea.toFixed(2)}</b></div>
+                `;
+                stdResult.textContent = `${exactArea.toFixed(2)} satuan²`;
+
+                intSteps.innerHTML = `
+                    <div>L = ∫<sub>0</sub><sup>${b}</sup> ${h} dx</div>
+                    <div class="text-white">L = [ ${h}x ]<sub>0</sub><sup>${b}</sup></div>
+                    <div class="text-indigo-300">L = (${h} · ${b}) - (${h} · 0) = <b>${exactArea.toFixed(2)}</b></div>
+                `;
+                intResult.textContent = `${exactArea.toFixed(2)} satuan²`;
+
+                insightTitle.textContent = 'Kotak: Fungsi Konstan f(x) = t';
+                insightBody.innerHTML = `Karena bagian atas kotak berupa garis datar konstan <b>f(x) = ${h}</b>, tinggi setiap pias persegi panjang selalu tepat menyentuh garis batas atas tanpa ruang kosong. Akibatnya, baik menggunakan <b>1 pias</b> maupun <b>100 pias</b>, pendekatan integral langsung menghasilkan luas yang sama persis dengan rumus <b>alas × tinggi</b> (Galat 0%).`;
+
+            } else if (state.shape === 'triangle') {
+                const slope = (h / b).toFixed(2);
+                funcBadge.textContent = `f(x) = (${h}/${b})x = ${slope}x`;
+                geomStatus.textContent = 'Rumus Eksak';
+                geomStatus.className = 'text-[11px] text-emerald-400 font-medium';
+                scoreStandard.textContent = exactArea.toFixed(2);
+                scoreStandardSub.textContent = 'L = ½ × a × t';
+
+                stdSteps.innerHTML = `
+                    <div>Rumus Segitiga Siku-Siku:</div>
+                    <div class="text-white">L = ½ × alas × tinggi</div>
+                    <div class="text-emerald-300">L = ½ × ${b} × ${h} = <b>${exactArea.toFixed(2)}</b></div>
+                `;
+                stdResult.textContent = `${exactArea.toFixed(2)} satuan²`;
+
+                intSteps.innerHTML = `
+                    <div>L = ∫<sub>0</sub><sup>${b}</sup> (${h}/${b})x dx</div>
+                    <div class="text-white">L = [ (${h}/${2 * b})x² ]<sub>0</sub><sup>${b}</sup></div>
+                    <div class="text-indigo-300">L = (${h}/${2 * b})·(${b}²) - 0 = ½·${b}·${h} = <b>${exactArea.toFixed(2)}</b></div>
+                `;
+                intResult.textContent = `${exactArea.toFixed(2)} satuan²`;
+
+                insightTitle.textContent = 'Segitiga: Pembuktian Rumus ½ × Alas × Tinggi';
+                insightBody.innerHTML = `Sisi miring segitiga adalah fungsi linear <b>f(x) = (t/b)x</b>. Ketika diintegralkan dengan aturan pangkat <b>∫ x¹ dx = ½ x²</b>, muncullah angka <b>½</b> pada rumus segitiga! Perhatikan bahwa dengan jumlah pias <b>n = ${n}</b>, terdapat galat sebesar <b>${errorPct.toFixed(2)}%</b> karena bentuk "anak tangga" pada sisi miring. Geser <b>n → 100</b> untuk melihat anak tangga menghalus menjadi garis miring sempurna!`;
+
+            } else if (state.shape === 'irregular') {
+                funcBadge.textContent = `f(x) = -0.03x³ + 0.36x² - 0.8x + ${h}`;
+                geomStatus.textContent = 'Tidak Ada Rumus Baku';
+                geomStatus.className = 'text-[11px] text-amber-400 font-medium';
+
+                // Rough geometric approximation using single trapezoid between x=0 and x=b
+                const y0 = evaluateFunction(0);
+                const yb = evaluateFunction(b);
+                const roughTrap = 0.5 * (y0 + yb) * b;
+
+                scoreStandard.textContent = `~${roughTrap.toFixed(2)}`;
+                scoreStandardSub.textContent = 'Taksiran Kasar (Melenceng)';
+
+                stdSteps.innerHTML = `
+                    <div class="text-amber-300">⚠️ Tidak ada rumus geometri biasa untuk kurva melengkung!</div>
+                    <div>Jika dipaksa memakai trapesium ujung-ke-ujung:</div>
+                    <div class="text-slate-400">L ≈ ½ × (f(0) + f(${b})) × ${b} = <b>${roughTrap.toFixed(2)}</b> (Meleset jauh!)</div>
+                `;
+                stdResult.textContent = `≈ ${roughTrap.toFixed(2)} (Kasar)`;
+
+                intSteps.innerHTML = `
+                    <div>L = ∫<sub>0</sub><sup>${b}</sup> (-0.03x³ + 0.36x² - 0.8x + ${h}) dx</div>
+                    <div class="text-white">L = [ -0.0075x⁴ + 0.12x³ - 0.4x² + ${h}x ]<sub>0</sub><sup>${b}</sup></div>
+                    <div class="text-indigo-300">Substitusi x = ${b} menghasilkan <b>${exactArea.toFixed(2)}</b></div>
+                `;
+                intResult.textContent = `${exactArea.toFixed(2)} satuan²`;
+
+                insightTitle.textContent = 'Bentuk Tidak Beraturan: Kekuatan Sejati Integral';
+                insightBody.innerHTML = `Pada bentuk melengkung seperti batas tanah atau sungai, rumus geometri biasa (kotak/segitiga) <b>tidak bisa digunakan secara akurat</b>. Integral memecah daerah melengkung ini menjadi <b>${n} pias kotak tipis</b> (masing-masing selebar Δx = ${riemann.dx.toFixed(2)}). Saat <b>n</b> diperbesar menuju tak hingga, jumlah seluruh pias (${riemann.totalArea.toFixed(2)}) menyatu dengan hasil Teorema Dasar Kalkulus (<b>${exactArea.toFixed(2)}</b>).`;
+
+            } else if (state.shape === 'custom') {
+                funcBadge.textContent = `f(x) = Kurva Bebas Interaktif`;
+                geomStatus.textContent = 'Tidak Ada Rumus Baku';
+                geomStatus.className = 'text-[11px] text-amber-400 font-medium';
+
+                const y0 = evaluateFunction(0);
+                const yb = evaluateFunction(b);
+                const roughTrap = 0.5 * (y0 + yb) * b;
+
+                scoreStandard.textContent = `~${roughTrap.toFixed(2)}`;
+                scoreStandardSub.textContent = 'Taksiran 1 Trapesium';
+
+                stdSteps.innerHTML = `
+                    <div class="text-amber-300">⚠️ Bentuk bebas tidak memiliki rumus aljabar maupun geometri sederhana.</div>
+                    <div>Taksiran kasar 1 trapesium ujung-ke-ujung:</div>
+                    <div class="text-slate-400">L ≈ ½ × (${y0.toFixed(1)} + ${yb.toFixed(1)}) × ${b} = <b>${roughTrap.toFixed(2)}</b></div>
+                `;
+                stdResult.textContent = `≈ ${roughTrap.toFixed(2)} (Kasar)`;
+
+                intSteps.innerHTML = `
+                    <div>Pendekatan Integral Numerik:</div>
+                    <div class="text-white">L = lim<sub>n→∞</sub> ∑ f(x<sub>i</sub>) · Δx</div>
+                    <div class="text-indigo-300">Dengan ${n} pias saat ini: <b>${riemann.totalArea.toFixed(2)}</b> (Eksak: <b>${exactArea.toFixed(2)}</b>)</div>
+                `;
+                intResult.textContent = `${exactArea.toFixed(2)} satuan²`;
+
+                insightTitle.textContent = 'Eksperimen Bentuk Bebas (Integral Numerik)';
+                insightBody.innerHTML = `Di dunia nyata (seperti menghitung luas penampang sayap pesawat atau luas pulau di peta), kita sering kali hanya memiliki titik-titik pengukuran tanpa rumus baku. Geser <b>titik-titik kuning</b> di kanvas untuk mengubah bentuk kurva, dan amati bagaimana <b>${n} pias integral</b> secara otomatis menyesuaikan tingginya untuk mengukur luas daerah tersebut!`;
+            }
+
+            drawCanvas(riemann, exactArea);
+        }
+
+        function drawCanvas(riemann, exactArea) {
+            const rect = canvas.parentElement.getBoundingClientRect();
+            const dpr = window.devicePixelRatio || 1;
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            ctx.save();
+            ctx.scale(dpr, dpr);
+
+            const W = rect.width;
+            const H = rect.height;
+
+            // Clear background
+            ctx.fillStyle = '#090d16';
+            ctx.fillRect(0, 0, W, H);
+
+            // Coordinate padding and mapping
+            const padLeft = 48;
+            const padRight = 28;
+            const padTop = 28;
+            const padBottom = 42;
+            const plotW = W - padLeft - padRight;
+            const plotH = H - padTop - padBottom;
+
+            const maxX = 10.5;
+            const maxY = 9.5;
+
+            const toScreenX = (x) => padLeft + (x / maxX) * plotW;
+            const toScreenY = (y) => padTop + plotH - (y / maxY) * plotH;
+            const fromScreenX = (sx) => ((sx - padLeft) / plotW) * maxX;
+            const fromScreenY = (sy) => ((padTop + plotH - sy) / plotH) * maxY;
+
+            // 1. Draw Grid Lines & Tick Labels
+            ctx.lineWidth = 1;
+            ctx.font = '11px "JetBrains Mono", monospace';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+
+            for (let x = 0; x <= 10; x += 1) {
+                const sx = toScreenX(x);
+                ctx.strokeStyle = x === 0 ? '#475569' : '#1e293b';
+                ctx.beginPath();
+                ctx.moveTo(sx, padTop);
+                ctx.lineTo(sx, padTop + plotH);
+                ctx.stroke();
+
+                ctx.fillStyle = '#64748b';
+                ctx.fillText(x.toString(), sx, padTop + plotH + 18);
+            }
+
+            ctx.textAlign = 'right';
+            for (let y = 0; y <= 9; y += 2) {
+                const sy = toScreenY(y);
+                ctx.strokeStyle = y === 0 ? '#475569' : '#1e293b';
+                ctx.beginPath();
+                ctx.moveTo(padLeft, sy);
+                ctx.lineTo(padLeft + plotW, sy);
+                ctx.stroke();
+
+                ctx.fillStyle = '#64748b';
+                ctx.fillText(y.toString(), padLeft - 10, sy);
+            }
+
+            // Axis labels
+            ctx.fillStyle = '#94a3b8';
+            ctx.textAlign = 'right';
+            ctx.fillText('sumbu-x (alas)', padLeft + plotW, padTop + plotH + 34);
+            ctx.save();
+            ctx.translate(16, padTop + 10);
+            ctx.rotate(-Math.PI / 2);
+            ctx.textAlign = 'right';
+            ctx.fillText('f(x) tinggi', 0, 0);
+            ctx.restore();
+
+            // 2. Draw Subtle Exact Area Fill Underneath Curve
+            ctx.beginPath();
+            ctx.moveTo(toScreenX(0), toScreenY(0));
+            const curveSteps = 200;
+            for (let i = 0; i <= curveSteps; i++) {
+                const cx = (i / curveSteps) * state.b;
+                const cy = evaluateFunction(cx);
+                ctx.lineTo(toScreenX(cx), toScreenY(cy));
+            }
+            ctx.lineTo(toScreenX(state.b), toScreenY(0));
+            ctx.closePath();
+            ctx.fillStyle = 'rgba(16, 185, 129, 0.10)';
+            ctx.fill();
+
+            // 3. Draw Riemann Slices (Rectangles or Trapezoids)
+            riemann.slices.forEach((slice, idx) => {
+                const sx0 = toScreenX(slice.x0);
+                const sx1 = toScreenX(slice.x1);
+                const sy0 = toScreenY(0);
+                const isHovered = idx === state.hoveredSlice;
+
+                ctx.beginPath();
+                if (state.method === 'trapezoid') {
+                    ctx.moveTo(sx0, sy0);
+                    ctx.lineTo(sx0, toScreenY(slice.yLeft));
+                    ctx.lineTo(sx1, toScreenY(slice.yRight));
+                    ctx.lineTo(sx1, sy0);
+                } else {
+                    const syTop = toScreenY(slice.height);
+                    ctx.rect(sx0, syTop, sx1 - sx0, sy0 - syTop);
+                }
+                ctx.closePath();
+
+                // Fill and border styling
+                if (isHovered) {
+                    ctx.fillStyle = 'rgba(245, 158, 11, 0.55)';
+                    ctx.strokeStyle = '#fbbf24';
+                    ctx.lineWidth = 2;
+                } else {
+                    ctx.fillStyle = 'rgba(99, 102, 241, 0.32)';
+                    ctx.strokeStyle = state.n > 60 ? 'rgba(129, 140, 248, 0.45)' : 'rgba(129, 140, 248, 0.85)';
+                    ctx.lineWidth = state.n > 60 ? 0.6 : 1.2;
+                }
+                ctx.fill();
+                ctx.stroke();
+
+                // Draw sample point dot on top of each slice if n <= 25
+                if (state.n <= 25 && state.method !== 'trapezoid') {
+                    const dotX = toScreenX(slice.sampleX);
+                    const dotY = toScreenY(slice.height);
+                    ctx.beginPath();
+                    ctx.arc(dotX, dotY, isHovered ? 4.5 : 3, 0, Math.PI * 2);
+                    ctx.fillStyle = isHovered ? '#fde047' : '#a5b4fc';
+                    ctx.fill();
+                }
+            });
+
+            // 4. Draw Exact Shape Boundary / Curve f(x)
+            ctx.beginPath();
+            for (let i = 0; i <= curveSteps; i++) {
+                const cx = (i / curveSteps) * state.b;
+                const cy = evaluateFunction(cx);
+                const sx = toScreenX(cx);
+                const sy = toScreenY(cy);
+                if (i === 0) ctx.moveTo(sx, sy);
+                else ctx.lineTo(sx, sy);
+            }
+            ctx.strokeStyle = '#10b981';
+            ctx.lineWidth = 3;
+            ctx.stroke();
+
+            // Draw vertical boundary line at x = b
+            ctx.beginPath();
+            ctx.setLineDash([5, 5]);
+            ctx.moveTo(toScreenX(state.b), toScreenY(0));
+            ctx.lineTo(toScreenX(state.b), toScreenY(evaluateFunction(state.b)));
+            ctx.strokeStyle = '#10b981';
+            ctx.lineWidth = 2;
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // 5. If in 'custom' mode, draw draggable control handles
+            if (state.shape === 'custom') {
+                const pts = state.customPoints;
+                const numSegs = pts.length - 1;
+                pts.forEach((py, i) => {
+                    const px = (i / numSegs) * state.b;
+                    const sx = toScreenX(px);
+                    const sy = toScreenY(py);
+
+                    ctx.beginPath();
+                    ctx.arc(sx, sy, 7, 0, Math.PI * 2);
+                    ctx.fillStyle = state.draggingPointIndex === i ? '#fde047' : '#f59e0b';
+                    ctx.fill();
+                    ctx.lineWidth = 2.5;
+                    ctx.strokeStyle = '#0f172a';
+                    ctx.stroke();
+                });
+            }
+
+            ctx.restore();
+        }
+
+        function handlePointerMove(clientX, clientY) {
+            const rect = canvas.getBoundingClientRect();
+            const sx = clientX - rect.left;
+            const sy = clientY - rect.top;
+
+            const padLeft = 48;
+            const padRight = 28;
+            const padTop = 28;
+            const padBottom = 42;
+            const plotW = rect.width - padLeft - padRight;
+            const plotH = rect.height - padTop - padBottom;
+
+            const maxX = 10.5;
+            const maxY = 9.5;
+
+            const xVal = ((sx - padLeft) / plotW) * maxX;
+            const yVal = ((padTop + plotH - sy) / plotH) * maxY;
+
+            // Handle dragging control point in 'custom' mode
+            if (state.shape === 'custom' && state.draggingPointIndex !== -1) {
+                const clampedY = Math.max(1.0, Math.min(8.5, yVal));
+                state.customPoints[state.draggingPointIndex] = clampedY;
+                updateSimulation();
+                return;
+            }
+
+            // Detect hovered Riemann slice
+            const hoverInfo = document.getElementById('hover-info');
+            if (xVal >= 0 && xVal <= state.b && yVal >= 0 && yVal <= maxY) {
+                const dx = state.b / state.n;
+                const sliceIdx = Math.min(state.n - 1, Math.floor(xVal / dx));
+                if (sliceIdx !== state.hoveredSlice) {
+                    state.hoveredSlice = sliceIdx;
+                    const riemann = calculateRiemannSum();
+                    const s = riemann.slices[sliceIdx];
+                    if (s) {
+                        hoverInfo.innerHTML = `Pias #${sliceIdx + 1}: x ∈ [${s.x0.toFixed(2)}, ${s.x1.toFixed(2)}] | Tinggi = ${s.height.toFixed(2)} | Luas dA = <b>${s.area.toFixed(3)}</b>`;
+                    }
+                    drawCanvas(riemann, calculateExactIntegral());
+                }
+            } else if (state.hoveredSlice !== -1) {
+                state.hoveredSlice = -1;
+                hoverInfo.textContent = 'Arahkan kursor / sentuh grafik untuk detail pias';
+                drawCanvas(calculateRiemannSum(), calculateExactIntegral());
+            }
+        }
+
+        function handlePointerDown(clientX, clientY) {
+            if (state.shape !== 'custom') {
+                handlePointerMove(clientX, clientY);
+                return;
+            }
+
+            const rect = canvas.getBoundingClientRect();
+            const sx = clientX - rect.left;
+            const sy = clientY - rect.top;
+
+            const padLeft = 48;
+            const padRight = 28;
+            const padTop = 28;
+            const padBottom = 42;
+            const plotW = rect.width - padLeft - padRight;
+            const plotH = rect.height - padTop - padBottom;
+
+            const maxX = 10.5;
+            const maxY = 9.5;
+            const toScreenX = (x) => padLeft + (x / maxX) * plotW;
+            const toScreenY = (y) => padTop + plotH - (y / maxY) * plotH;
+
+            const pts = state.customPoints;
+            const numSegs = pts.length - 1;
+            for (let i = 0; i < pts.length; i++) {
+                const px = (i / numSegs) * state.b;
+                const handleX = toScreenX(px);
+                const handleY = toScreenY(pts[i]);
+                const dist = Math.hypot(sx - handleX, sy - handleY);
+                if (dist <= 18) {
+                    state.draggingPointIndex = i;
+                    return;
+                }
+            }
+
+            handlePointerMove(clientX, clientY);
+        }
+
+        canvas.addEventListener('mousemove', (e) => handlePointerMove(e.clientX, e.clientY));
+        canvas.addEventListener('mousedown', (e) => handlePointerDown(e.clientX, e.clientY));
+        window.addEventListener('mouseup', () => { state.draggingPointIndex = -1; });
+
+        canvas.addEventListener('mouseleave', () => {
+            if (state.draggingPointIndex === -1) {
+                state.hoveredSlice = -1;
+                document.getElementById('hover-info').textContent = 'Arahkan kursor / sentuh grafik untuk detail pias';
+                drawCanvas(calculateRiemannSum(), calculateExactIntegral());
+            }
+        });
+
+        // Touch support for mobile devices
+        canvas.addEventListener('touchstart', (e) => {
+            if (e.touches.length > 0) {
+                handlePointerDown(e.touches[0].clientX, e.touches[0].clientY);
+            }
+        }, { passive: true });
+
+        canvas.addEventListener('touchmove', (e) => {
+            if (e.touches.length > 0) {
+                handlePointerMove(e.touches[0].clientX, e.touches[0].clientY);
+            }
+        }, { passive: true });
+
+        window.addEventListener('touchend', () => {
+            state.draggingPointIndex = -1;
+        });
+
+        window.addEventListener('resize', () => {
+            drawCanvas(calculateRiemannSum(), calculateExactIntegral());
+        });
+
+        // Initialize on load
+        window.onload = function () {
+            setMethod('left');
+            setShape('triangle');
+        };
+    </script>
+</body>
+</html>
