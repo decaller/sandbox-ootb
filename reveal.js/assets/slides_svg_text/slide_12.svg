@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:ooo="http://xml.openoffice.org/svg/export" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 33867 19050" width="100%" height="100%" preserveAspectRatio="xMidYMid meet"><defs><clipPath id="presentation_clip_path" clipPathUnits="userSpaceOnUse"><rect x="0" y="0" width="33867" height="19050" /></clipPath><style>
+      text, tspan {
+        font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif !important;
+        user-select: text !important;
+        -webkit-user-select: text !important;
+        cursor: text !important;
+      }
+    </style></defs><rect x="0" y="0" width="33867" height="19050" fill="#FCC6E8" stroke="none" /><g id="id12" class="Slide" clip-path="url(#presentation_clip_path)">
+     <g ooo:name="SAATNYA_berbelok" class="Page">
+      <g class="TitleText">
+       <g id="id141">
+        <rect class="BoundingBox" stroke="none" fill="none" x="9819" y="1016" width="23073" height="4911" />
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="10073" y="2870"><tspan font-family="Montserrat" font-size="2117px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="21760" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">SAATNYA BERBELOK</tspan></tspan></tspan></text>
+       </g>
+      </g>
+      <g class="Graphic">
+       <g>
+        <rect class="BoundingBox" stroke="none" fill="none" x="-447" y="0" width="9264" height="19050" />
+        <image x="-447" y="0" width="9264" height="19050" preserveAspectRatio="none" xlink:href="assets/images/slide_12_img_17.png" href="assets/images/slide_12_img_17.png" />
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id142">
+        <rect class="BoundingBox" stroke="none" fill="none" x="18204" y="6951" width="6303" height="6303" />
+        <path fill="rgb(0,0,0)" stroke="none" d="M 19140,12317 L 19140,12317 C 18751,11928 18471,11444 18329,10913 18186,10382 18186,9822 18329,9291 18471,8760 18751,8276 19140,7887 L 19140,7887 C 19529,7498 20013,7218 20544,7076 21075,6933 21635,6933 22166,7076 22697,7218 23181,7498 23570,7887 L 23570,7887 23570,7887 C 23959,8276 24239,8760 24381,9291 24524,9822 24524,10382 24381,10913 24239,11444 23959,11928 23570,12317 L 23570,12317 C 23181,12706 22697,12986 22166,13128 21635,13271 21075,13271 20544,13128 20013,12986 19529,12706 19140,12317 L 19140,12317 Z M 23606,9688 L 23606,9688 C 23595,9628 23582,9568 23566,9509 23462,9121 23258,8767 22974,8483 22689,8199 22335,7994 21947,7890 21559,7786 21150,7786 20762,7890 20373,7994 20019,8199 19735,8483 19451,8767 19246,9121 19142,9509 19126,9568 19113,9628 19102,9688 L 23606,9688 Z M 19102,10516 L 19102,10516 C 19113,10576 19127,10636 19142,10695 19246,11083 19451,11437 19735,11721 20019,12005 20373,12210 20762,12314 21150,12418 21559,12418 21947,12314 22335,12210 22689,12005 22974,11721 23258,11437 23462,11083 23566,10695 23582,10636 23596,10576 23607,10516 L 19102,10516 Z " />
+        <path fill="none" stroke="rgb(186,146,171)" stroke-width="35" stroke-linejoin="miter" d="M 19140,12317 L 19140,12317 C 18751,11928 18471,11444 18329,10913 18186,10382 18186,9822 18329,9291 18471,8760 18751,8276 19140,7887 L 19140,7887 C 19529,7498 20013,7218 20544,7076 21075,6933 21635,6933 22166,7076 22697,7218 23181,7498 23570,7887 L 23570,7887 23570,7887 C 23959,8276 24239,8760 24381,9291 24524,9822 24524,10382 24381,10913 24239,11444 23959,11928 23570,12317 L 23570,12317 C 23181,12706 22697,12986 22166,13128 21635,13271 21075,13271 20544,13128 20013,12986 19529,12706 19140,12317 Z " />
+        <path fill="none" stroke="rgb(186,146,171)" stroke-width="35" stroke-linejoin="miter" d="M 23606,9688 L 23606,9688 C 23595,9628 23582,9568 23566,9509 23462,9121 23258,8767 22974,8483 22689,8199 22335,7994 21947,7890 21559,7786 21150,7786 20762,7890 20373,7994 20019,8199 19735,8483 19451,8767 19246,9121 19142,9509 19126,9568 19113,9628 19102,9688 L 23606,9688 Z " />
+        <path fill="none" stroke="rgb(186,146,171)" stroke-width="35" stroke-linejoin="miter" d="M 19102,10516 L 19102,10516 C 19113,10576 19127,10636 19142,10695 19246,11083 19451,11437 19735,11721 20019,12005 20373,12210 20762,12314 21150,12418 21559,12418 21947,12314 22335,12210 22689,12005 22974,11721 23258,11437 23462,11083 23566,10695 23582,10636 23596,10576 23607,10516 L 19102,10516 Z " />
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id143">
+        <rect class="BoundingBox" stroke="none" fill="none" x="19083" y="5019" width="4261" height="1154" />
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="19846" y="5981"><tspan font-family="Montserrat" font-size="741px" font-style="italic" font-weight="700" lengthAdjust="spacingAndGlyphs" textLength="2735" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Lancar</tspan></tspan></tspan></text>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id144">
+        <rect class="BoundingBox" stroke="none" fill="none" x="11327" y="9524" width="6301" height="1154" />
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="11884" y="10486"><tspan font-family="Montserrat" font-size="741px" font-style="italic" font-weight="700" lengthAdjust="spacingAndGlyphs" textLength="5188" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Personalisasi</tspan></tspan></tspan></text>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id145">
+        <rect class="BoundingBox" stroke="none" fill="none" x="19225" y="13856" width="4261" height="1568" />
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="19988" y="14384"><tspan font-family="Montserrat" font-size="741px" font-style="italic" font-weight="700" lengthAdjust="spacingAndGlyphs" textLength="2735" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Semua </tspan></tspan><tspan class="TextPosition" x="19905" y="15273"><tspan font-family="Montserrat" font-size="741px" font-style="italic" font-weight="700" lengthAdjust="spacingAndGlyphs" textLength="2902" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Kurang</tspan></tspan></tspan></text>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id146">
+        <rect class="BoundingBox" stroke="none" fill="none" x="25786" y="9369" width="6301" height="1657" />
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="26036" y="9953"><tspan font-family="Montserrat" font-size="741px" font-style="italic" font-weight="700" lengthAdjust="spacingAndGlyphs" textLength="2881" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Kondisi </tspan></tspan><tspan class="TextPosition" x="26036" y="11019"><tspan font-family="Montserrat" font-size="741px" font-style="italic" font-weight="700" lengthAdjust="spacingAndGlyphs" textLength="3394" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Berubah</tspan></tspan></tspan></text>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id147">
+        <rect class="BoundingBox" stroke="none" fill="none" x="9819" y="14664" width="5633" height="4145" />
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="10069" y="15070"><tspan font-family="Montserrat" font-size="423px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="1061" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">note:</tspan></tspan></tspan><tspan class="TextParagraph"><tspan class="TextPosition" x="10069" y="15679"><tspan font-family="Montserrat" font-size="423px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="3340" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Rencana bukan </tspan></tspan><tspan class="TextPosition" x="10069" y="16288"><tspan font-family="Montserrat" font-size="423px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="4873" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">patokan mutlak, setiap </tspan></tspan><tspan class="TextPosition" x="10069" y="16897"><tspan font-family="Montserrat" font-size="423px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="4541" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">anak, setiap generasi, </tspan></tspan><tspan class="TextPosition" x="10069" y="17506"><tspan font-family="Montserrat" font-size="423px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="4880" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">setiap waktu bisa terus </tspan></tspan><tspan class="TextPosition" x="10069" y="18115"><tspan font-family="Montserrat" font-size="423px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="3915" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">berubah, cari jalan </tspan></tspan><tspan class="TextPosition" x="10069" y="18724"><tspan font-family="Montserrat" font-size="423px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="3132" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">tengah terbaik</tspan></tspan></tspan></text>
+       </g>
+      </g>
+     </g>
+    </g>
+   </svg>

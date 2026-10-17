@@ -17,6 +17,42 @@ body, .reveal-viewport {
 }
 
 /* -----------------------------------------
+   Global Text Selection (Crucial for Selectable Slide Text)
+   ----------------------------------------- */
+.reveal,
+.reveal .slides,
+.reveal .slides section,
+.reveal .slides section * {
+	user-select: text !important;
+	-webkit-user-select: text !important;
+}
+
+
+.reveal svg rect.BoundingBox {
+	pointer-events: none !important;
+}
+
+.reveal svg text,
+.reveal svg tspan {
+	user-select: text !important;
+	-webkit-user-select: text !important;
+	cursor: text !important;
+	pointer-events: auto !important;
+}
+
+.reveal svg text,
+.reveal svg tspan {
+	user-select: text !important;
+	-webkit-user-select: text !important;
+	cursor: text !important;
+}
+
+::selection {
+	background: #3b82f6 !important;
+	color: #ffffff !important;
+}
+
+/* -----------------------------------------
    Full-Bleed Vector SVG Slide View
    ----------------------------------------- */
 .reveal .slides section.slide-svg-view {
@@ -37,7 +73,6 @@ body, .reveal-viewport {
 .slide-svg-full {
 	width: 1920px;
 	height: 1080px;
-	object-fit: fill;
 	display: block;
 	margin: 0 !important;
 	max-width: none !important;
@@ -214,4 +249,176 @@ body, .reveal-viewport {
 	height: 1080px;
 	border: none;
 	display: block;
+}
+
+/* -----------------------------------------
+   Slide with Dual Iframes (Slides 15 & 16)
+   ----------------------------------------- */
+.reveal .slides section.slide-iframe-view {
+	width: 1920px !important;
+	height: 1080px !important;
+	top: 0 !important;
+	left: 0 !important;
+	padding: 36px 48px !important;
+	margin: 0 !important;
+	box-sizing: border-box;
+	position: absolute;
+	overflow: hidden;
+	display: flex !important;
+	flex-direction: column;
+	background-color: var(--theme-pink) !important;
+}
+
+.iframe-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 32px;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+}
+
+.iframe-col {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	background: #ffffff;
+	border-radius: 20px;
+	overflow: hidden;
+	box-shadow: 0 12px 36px rgba(0, 0, 0, 0.1);
+	border: 2px solid rgba(0, 0, 0, 0.08);
+}
+
+.iframe-col-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 16px 24px;
+	background: #ffffff;
+	border-bottom: 2px solid #f3f4f6;
+	z-index: 2;
+}
+
+.iframe-col-title-group {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.iframe-col-title {
+	font-size: 26px !important;
+	font-weight: 800 !important;
+	color: #111827 !important;
+	margin: 0 !important;
+	line-height: 1.2 !important;
+	text-transform: uppercase !important;
+	letter-spacing: -0.01em !important;
+}
+
+.iframe-col-link {
+	font-size: 15px !important;
+	font-weight: 600 !important;
+	color: #2563eb !important;
+	text-decoration: none !important;
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	transition: all 0.15s ease;
+}
+
+.iframe-col-link:hover {
+	color: #1d4ed8 !important;
+	text-decoration: underline !important;
+}
+
+.iframe-col-badge-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 8px 16px;
+	background-color: #f3f4f6;
+	color: #374151 !important;
+	font-size: 14px;
+	font-weight: 600;
+	border-radius: 20px;
+	text-decoration: none !important;
+	transition: all 0.2s ease;
+	border: 1px solid #e5e7eb;
+}
+
+.iframe-col-badge-btn:hover {
+	background-color: #2563eb;
+	color: #ffffff !important;
+	border-color: #2563eb;
+	transform: translateY(-1px);
+}
+
+.iframe-col-body {
+	flex: 1;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	background-color: #f9fafb;
+	overflow: hidden;
+}
+
+.iframe-col-body-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #ffffff;
+}
+
+.iframe-col-frame {
+	width: 100%;
+	height: 100%;
+	border: none;
+	display: block;
+}
+
+.lembar-obs-link-wrapper {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	text-decoration: none;
+}
+
+.iframe-col-image-preview {
+	max-width: 90%;
+	max-height: 90%;
+	object-fit: contain;
+	display: block;
+	border-radius: 12px;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+	transition: transform 0.2s ease;
+}
+
+.lembar-obs-link-wrapper:hover .iframe-col-image-preview {
+	transform: scale(1.02);
+}
+
+.lembar-obs-overlay {
+	position: absolute;
+	bottom: 24px;
+	background: rgba(17, 24, 39, 0.85);
+	backdrop-filter: blur(8px);
+	color: #ffffff;
+	padding: 12px 24px;
+	border-radius: 30px;
+	font-size: 16px;
+	font-weight: 600;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+	transition: all 0.2s ease;
+}
+
+.lembar-obs-link-wrapper:hover .lembar-obs-overlay {
+	background: #2563eb;
+	transform: translateY(-2px);
 }
