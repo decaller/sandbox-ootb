@@ -6,32 +6,58 @@
         -webkit-user-select: text !important;
         cursor: text !important;
       }
-    </style></defs><rect x="0" y="0" width="33867" height="19050" fill="#FCC6E8" stroke="none" /><g id="id11" class="Slide" clip-path="url(#presentation_clip_path)">
-     <g ooo:name="Observasi_dan_dokumentasi_Progress_murid" class="Page">
-      <g class="TitleText">
-       <g id="id140">
-        <rect class="BoundingBox" stroke="none" fill="none" x="1016" y="15531" width="31749" height="3035" />
-        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="1270" y="16789"><tspan font-family="Montserrat" font-size="1270px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="26723" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">OBSERVASI DAN DOKUMENTASI PROGRESS </tspan></tspan><tspan class="TextPosition" x="1270" y="18084"><tspan font-family="Montserrat" font-size="1270px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="4357" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">MURID</tspan></tspan></tspan></text>
+    </style></defs><rect x="0" y="0" width="33867" height="19050" fill="#BDDBE1" stroke="none" /><g id="id11" class="Slide" clip-path="url(#presentation_clip_path)">
+     <g ooo:name="page11" class="Page">
+      <g class="com.sun.star.drawing.TableShape">
+       <g>
+        <rect class="BoundingBox" stroke="none" fill="none" x="986" y="393" width="31893" height="18274" />
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="1651" y="1664"><tspan font-family="Montserrat" font-size="564px" font-weight="700" lengthAdjust="spacingAndGlyphs" textLength="1805" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Tahap</tspan></tspan></tspan></text>
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="5651" y="1664"><tspan font-family="Montserrat" font-size="564px" font-weight="700" lengthAdjust="spacingAndGlyphs" textLength="824" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">SD</tspan></tspan></tspan></text>
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="17651" y="1664"><tspan font-family="Montserrat" font-size="564px" font-weight="700" lengthAdjust="spacingAndGlyphs" textLength="1314" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">SMK</tspan></tspan></tspan></text>
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="1651" y="3616"><tspan font-family="Montserrat" font-size="564px" font-style="italic" font-weight="700" lengthAdjust="spacingAndGlyphs" textLength="2065" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Tujuan</tspan></tspan></tspan></text>
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="5651" y="3616"><tspan font-family="Montserrat" font-size="564px" font-style="italic" font-weight="700" lengthAdjust="spacingAndGlyphs" textLength="10550" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Lingkungan Hijau untuk Perkotaan</tspan></tspan></tspan></text>
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="17651" y="3616"><tspan font-family="Montserrat" font-size="564px" font-style="italic" font-weight="700" lengthAdjust="spacingAndGlyphs" textLength="4887" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Pemograman AI</tspan></tspan></tspan></text>
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="1651" y="7791"><tspan font-family="Montserrat" font-size="564px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="2467" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Sandbox </tspan></tspan><tspan class="TextPosition" x="1651" y="8468"><tspan font-family="Montserrat" font-size="564px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="203" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">1</tspan></tspan></tspan></text>
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="5651" y="8129"><tspan font-family="Montserrat" font-size="564px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="6016" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Terrarium / Akuarium</tspan></tspan></tspan></text>
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="17651" y="7791"><tspan font-family="Montserrat" font-size="564px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="3850" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Game Puzzle </tspan></tspan><tspan class="TextPosition" x="17651" y="8468"><tspan font-family="Montserrat" font-size="564px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="4138" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Pemrograman</tspan></tspan></tspan></text>
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="1651" y="15284"><tspan font-family="Montserrat" font-size="564px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="2038" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">OOTB 1</tspan></tspan></tspan></text>
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="5651" y="15284"><tspan font-family="Montserrat" font-size="564px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="4302" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Kebun / Taman</tspan></tspan></tspan></text>
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="17651" y="15284"><tspan font-family="Montserrat" font-size="564px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="6245" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">How Computer Works</tspan></tspan></tspan></text>
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="30" stroke-linejoin="round" d="M 1001,423 L 32863,423 " />
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="30" stroke-linejoin="round" d="M 1016,408 L 1016,18651 " />
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="30" stroke-linejoin="round" d="M 5016,408 L 5016,18651 " />
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="30" stroke-linejoin="round" d="M 17016,408 L 17016,18651 " />
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="30" stroke-linejoin="round" d="M 32848,408 L 32848,18651 " />
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="30" stroke-linejoin="round" d="M 1001,2454 L 32863,2454 " />
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="30" stroke-linejoin="round" d="M 1001,4326 L 32863,4326 " />
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="30" stroke-linejoin="round" d="M 1001,11481 L 32863,11481 " />
+        <path fill="none" stroke="rgb(0,0,0)" stroke-width="30" stroke-linejoin="round" d="M 1001,18636 L 32863,18636 " />
        </g>
       </g>
-      <g class="Group">
-       <g class="Graphic">
-        <g>
-         <rect class="BoundingBox" stroke="none" fill="none" x="609" y="476" width="17727" height="8784" />
-         <image x="609" y="476" width="17727" height="8784" preserveAspectRatio="none" xlink:href="assets/images/slide_11_img_14.png" href="assets/images/slide_11_img_14.png" />
-        </g>
+      <g class="Graphic">
+       <desc>pexels-cottonbro-4507722.jpg
+       </desc>
+       <g>
+        <rect class="BoundingBox" stroke="none" fill="none" x="11509" y="4995" width="4017" height="6089" />
+        <image x="11509" y="4995" width="4017" height="6089" preserveAspectRatio="none" xlink:href="assets/images/slide_11_img_6.jpg" href="assets/images/slide_11_img_6.jpg" />
        </g>
-       <g class="Graphic">
-        <g>
-         <rect class="BoundingBox" stroke="none" fill="none" x="18097" y="4534" width="15587" height="6909" />
-         <image x="18097" y="4534" width="15587" height="6909" preserveAspectRatio="none" xlink:href="assets/images/slide_11_img_15.png" href="assets/images/slide_11_img_15.png" />
-        </g>
+      </g>
+      <g class="Graphic">
+       <g>
+        <rect class="BoundingBox" stroke="none" fill="none" x="24070" y="4659" width="8286" height="6214" />
+        <image x="24070" y="4659" width="8286" height="6214" preserveAspectRatio="none" xlink:href="assets/images/slide_11_img_7.jpg" href="assets/images/slide_11_img_7.jpg" />
        </g>
-       <g class="Graphic">
-        <g>
-         <rect class="BoundingBox" stroke="none" fill="none" x="609" y="8625" width="17727" height="5636" />
-         <image x="609" y="8625" width="17727" height="5636" preserveAspectRatio="none" xlink:href="assets/images/slide_11_img_16.png" href="assets/images/slide_11_img_16.png" />
-        </g>
+      </g>
+      <g class="Graphic">
+       <g>
+        <rect class="BoundingBox" stroke="none" fill="none" x="11509" y="11926" width="4017" height="6026" />
+        <image x="11509" y="11926" width="4017" height="6026" preserveAspectRatio="none" xlink:href="assets/images/slide_11_img_8.jpg" href="assets/images/slide_11_img_8.jpg" />
+       </g>
+      </g>
+      <g class="Graphic">
+       <g>
+        <rect class="BoundingBox" stroke="none" fill="none" x="24070" y="12428" width="8286" height="5524" />
+        <image x="24070" y="12428" width="8286" height="5524" preserveAspectRatio="none" xlink:href="assets/images/slide_11_img_9.jpg" href="assets/images/slide_11_img_9.jpg" />
        </g>
       </g>
      </g>

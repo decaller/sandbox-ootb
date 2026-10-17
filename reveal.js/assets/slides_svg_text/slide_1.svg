@@ -9,13 +9,13 @@
     </style></defs><rect x="0" y="0" width="33867" height="19050" fill="#FCC6E8" stroke="none" /><g id="id1" class="Slide" clip-path="url(#presentation_clip_path)">
      <g ooo:name="Sandbox_and_&#10;out_of_the_box" class="Page">
       <g class="TitleText">
-       <g id="id55">
+       <g id="id57">
         <rect class="BoundingBox" stroke="none" fill="none" x="1016" y="1262" width="27685" height="5587" />
         <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="1270" y="3404"><tspan font-family="Montserrat" font-size="2469px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="19346" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">SANDBOX AND </tspan></tspan><tspan class="TextPosition" x="1270" y="5923"><tspan font-family="Montserrat" font-size="2469px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="20854" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">OUT OF THE BOX</tspan></tspan></tspan></text>
        </g>
       </g>
       <g class="com.sun.star.presentation.SubtitleShape">
-       <g id="id56">
+       <g id="id58">
         <rect class="BoundingBox" stroke="none" fill="none" x="26305" y="1539" width="5900" height="5502" />
         <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="28483" y="2160"><tspan font-family="Montserrat" font-size="494px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="3468" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Pembelajaran </tspan></tspan><tspan class="TextPosition" x="29628" y="2753"><tspan font-family="Montserrat" font-size="494px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="2323" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Alamiyah </tspan></tspan><tspan class="TextPosition" x="28119" y="3346"><tspan font-family="Montserrat" font-size="494px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="3832" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Mustaqbal Way</tspan></tspan></tspan></text>
        </g>
@@ -23,7 +23,7 @@
       <g class="Graphic">
        <g>
         <rect class="BoundingBox" stroke="none" fill="none" x="0" y="7042" width="33866" height="17388" />
-        <image x="0" y="7042" width="33866" height="17388" preserveAspectRatio="none" xlink:href="assets/images/slide_1_img_1.png" href="assets/images/slide_1_img_1.png" />
+        <image x="0" y="7042" width="33866" height="17388" preserveAspectRatio="xMidYMid slice" xlink:href="assets/images/slide_1_cover.png" href="assets/images/slide_1_cover.png" opacity="0.85" />
        </g>
       </g>
      </g>

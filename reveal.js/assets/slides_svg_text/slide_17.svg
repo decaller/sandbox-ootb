@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:ooo="http://xml.openoffice.org/svg/export" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 33867 19050" width="100%" height="100%" preserveAspectRatio="xMidYMid meet"><defs><clipPath id="presentation_clip_path" clipPathUnits="userSpaceOnUse"><rect x="0" y="0" width="33867" height="19050" /></clipPath><style>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:ooo="http://xml.openoffice.org/svg/export" version="1.1" viewBox="0 0 33867 19050" width="100%" height="100%" preserveAspectRatio="xMidYMid meet"><defs><clipPath id="presentation_clip_path" clipPathUnits="userSpaceOnUse"><rect x="0" y="0" width="33867" height="19050" /></clipPath><style>
       text, tspan {
         font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif !important;
         user-select: text !important;
@@ -7,17 +7,43 @@
         cursor: text !important;
       }
     </style></defs><rect x="0" y="0" width="33867" height="19050" fill="#FCC6E8" stroke="none" /><g id="id17" class="Slide" clip-path="url(#presentation_clip_path)">
-     <g ooo:name="Alhamdulillah" class="Page">
-      <g class="TitleText">
-       <g id="id173">
-        <rect class="BoundingBox" stroke="none" fill="none" x="1016" y="2312" width="14223" height="7263" />
-        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="1270" y="9245"><tspan font-family="Montserrat" font-size="988px" font-style="italic" font-weight="700" lengthAdjust="spacingAndGlyphs" textLength="8451" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">ALHAMDULILLAH</tspan></tspan></tspan></text>
+     <g ooo:name="page17" class="Page">
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id165">
+        <rect class="BoundingBox" stroke="none" fill="none" x="1015" y="982" width="7568" height="1474" />
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="1269" y="1915"><tspan font-family="Montserrat" font-size="988px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="3875" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">WIKI (AI)</tspan></tspan></tspan></text>
        </g>
       </g>
-      <g class="Graphic">
-       <g>
-        <rect class="BoundingBox" stroke="none" fill="none" x="15960" y="1016" width="12782" height="17119" />
-        <image x="15960" y="1016" width="12782" height="17119" preserveAspectRatio="none" xlink:href="assets/images/slide_17_img_20.jpg" href="assets/images/slide_17_img_20.jpg" />
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id166">
+        <rect class="BoundingBox" stroke="none" fill="none" x="1015" y="2456" width="12406" height="1154" />
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="1265" y="3418"><tspan font-family="Montserrat" font-size="741px" font-style="italic" font-weight="700" lengthAdjust="spacingAndGlyphs" textLength="11642" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">wikipkn.insanmustaqbal.or.id</tspan></tspan></tspan></text>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id167">
+        <rect class="BoundingBox" stroke="none" fill="none" x="19151" y="982" width="7568" height="1474" />
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="19405" y="1915"><tspan font-family="Montserrat" font-size="988px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="5765" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">VID SEARCH</tspan></tspan></tspan></text>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id168">
+        <rect class="BoundingBox" stroke="none" fill="none" x="19151" y="2267" width="12406" height="1154" />
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="19401" y="3101"><tspan font-family="Montserrat" font-size="494px" font-style="italic" font-weight="700" lengthAdjust="spacingAndGlyphs" textLength="10661" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">decaller.github.io/sqlite-vector-video-db/</tspan></tspan></tspan></text>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id169">
+        <rect class="BoundingBox" stroke="none" fill="none" x="1194" y="3875" width="14286" height="14815" />
+        <path fill="rgb(0,0,0)" stroke="none" d="M 8337,18671 L 1212,18671 1212,3893 15461,3893 15461,18671 8337,18671 Z " />
+        <path fill="none" stroke="rgb(186,146,171)" stroke-width="35" stroke-linejoin="miter" d="M 8337,18671 L 1212,18671 1212,3893 15461,3893 15461,18671 8337,18671 Z " />
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id170">
+        <rect class="BoundingBox" stroke="none" fill="none" x="19133" y="3875" width="14286" height="14815" />
+        <path fill="rgb(0,0,0)" stroke="none" d="M 26276,18671 L 19151,18671 19151,3893 33400,3893 33400,18671 26276,18671 Z " />
+        <path fill="none" stroke="rgb(186,146,171)" stroke-width="35" stroke-linejoin="miter" d="M 26276,18671 L 19151,18671 19151,3893 33400,3893 33400,18671 26276,18671 Z " />
        </g>
       </g>
      </g>

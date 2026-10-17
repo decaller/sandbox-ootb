@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:ooo="http://xml.openoffice.org/svg/export" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 33867 19050" width="100%" height="100%" preserveAspectRatio="xMidYMid meet"><defs><clipPath id="presentation_clip_path" clipPathUnits="userSpaceOnUse"><rect x="0" y="0" width="33867" height="19050" /></clipPath><style>
+      text, tspan {
+        font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif !important;
+        user-select: text !important;
+        -webkit-user-select: text !important;
+        cursor: text !important;
+      }
+    </style></defs><rect x="0" y="0" width="33867" height="19050" fill="#FCC6E8" stroke="none" /><g id="id18" class="Slide" clip-path="url(#presentation_clip_path)">
+     <g ooo:name="page18" class="Page">
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id171">
+        <rect class="BoundingBox" stroke="none" fill="none" x="1015" y="982" width="7568" height="1474" />
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="1269" y="1915"><tspan font-family="Montserrat" font-size="988px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="4288" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">TB40 ALT</tspan></tspan></tspan></text>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id172">
+        <rect class="BoundingBox" stroke="none" fill="none" x="1015" y="2456" width="12406" height="1154" />
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="1265" y="3418"><tspan font-family="Montserrat" font-size="741px" font-style="italic" font-weight="700" lengthAdjust="spacingAndGlyphs" textLength="10355" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">tb40.insanmustaqbal.or.id</tspan></tspan></tspan></text>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id173">
+        <rect class="BoundingBox" stroke="none" fill="none" x="20073" y="982" width="13154" height="1474" />
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="20327" y="1915"><tspan font-family="Montserrat" font-size="988px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="9637" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">LEMBAR OBSERVASI</tspan></tspan></tspan></text>
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id174">
+        <rect class="BoundingBox" stroke="none" fill="none" x="20073" y="2267" width="12406" height="1154" />
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="20323" y="3101"><tspan font-family="Montserrat" font-size="494px" font-style="italic" font-weight="700" lengthAdjust="spacingAndGlyphs" textLength="3809" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">bit.ly/obsfitrah</tspan></tspan></tspan></text>
+       </g>
+      </g>
+      <g class="Graphic">
+       <g>
+        <rect class="BoundingBox" stroke="none" fill="none" x="19926" y="3611" width="11412" height="16164" />
+        <image x="19926" y="3611" width="11412" height="16164" preserveAspectRatio="none" xlink:href="assets/images/slide_18_img_19.png" href="assets/images/slide_18_img_19.png" />
+       </g>
+      </g>
+      <g class="com.sun.star.drawing.CustomShape">
+       <g id="id175">
+        <rect class="BoundingBox" stroke="none" fill="none" x="1194" y="3875" width="14286" height="14815" />
+        <path fill="rgb(0,0,0)" stroke="none" d="M 8337,18671 L 1212,18671 1212,3893 15461,3893 15461,18671 8337,18671 Z " />
+        <path fill="none" stroke="rgb(186,146,171)" stroke-width="35" stroke-linejoin="miter" d="M 8337,18671 L 1212,18671 1212,3893 15461,3893 15461,18671 8337,18671 Z " />
+       </g>
+      </g>
+     </g>
+    </g>
+   </svg>

@@ -7,23 +7,31 @@
         cursor: text !important;
       }
     </style></defs><rect x="0" y="0" width="33867" height="19050" fill="#FCC6E8" stroke="none" /><g id="id13" class="Slide" clip-path="url(#presentation_clip_path)">
-     <g ooo:name="Takeway" class="Page">
+     <g ooo:name="Observasi_dan_dokumentasi_Progress_murid" class="Page">
       <g class="TitleText">
-       <g id="id148">
-        <rect class="BoundingBox" stroke="none" fill="none" x="1016" y="2312" width="14223" height="6339" />
-        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="1270" y="8091"><tspan font-family="Montserrat" font-size="2117px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="10278" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">TAKEWAY</tspan></tspan></tspan></text>
+       <g id="id143">
+        <rect class="BoundingBox" stroke="none" fill="none" x="1016" y="15531" width="31749" height="3035" />
+        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="1270" y="16789"><tspan font-family="Montserrat" font-size="1270px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="26723" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">OBSERVASI DAN DOKUMENTASI PROGRESS </tspan></tspan><tspan class="TextPosition" x="1270" y="18084"><tspan font-family="Montserrat" font-size="1270px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="4357" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">MURID</tspan></tspan></tspan></text>
        </g>
       </g>
-      <g class="Outline">
-       <g id="id149">
-        <rect class="BoundingBox" stroke="none" fill="none" x="619" y="8493" width="14223" height="9286" />
-        <text class="SVGTextShape"><tspan class="TextParagraph"><tspan class="TextPosition" x="873" y="9183"><tspan font-family="Montserrat" font-size="564px" font-weight="400" lengthAdjust="spacingAndGlyphs" textLength="11803" fill="rgb(0,0,0)" stroke="none" style="white-space: pre">Mengembalikan firasat dalam pendidikan</tspan></tspan></tspan></text>
+      <g class="Group">
+       <g class="Graphic">
+        <g>
+         <rect class="BoundingBox" stroke="none" fill="none" x="609" y="476" width="17727" height="8784" />
+         <image x="609" y="476" width="17727" height="8784" preserveAspectRatio="none" xlink:href="assets/images/slide_13_img_14.png" href="assets/images/slide_13_img_14.png" />
+        </g>
        </g>
-      </g>
-      <g class="Graphic">
-       <g>
-        <rect class="BoundingBox" stroke="none" fill="none" x="15084" y="0" width="18730" height="19050" />
-        <image x="15084" y="0" width="18730" height="19050" preserveAspectRatio="none" xlink:href="assets/images/slide_13_img_18.png" href="assets/images/slide_13_img_18.png" />
+       <g class="Graphic">
+        <g>
+         <rect class="BoundingBox" stroke="none" fill="none" x="18097" y="4534" width="15587" height="6909" />
+         <image x="18097" y="4534" width="15587" height="6909" preserveAspectRatio="none" xlink:href="assets/images/slide_13_img_15.png" href="assets/images/slide_13_img_15.png" />
+        </g>
+       </g>
+       <g class="Graphic">
+        <g>
+         <rect class="BoundingBox" stroke="none" fill="none" x="609" y="8625" width="17727" height="5636" />
+         <image x="609" y="8625" width="17727" height="5636" preserveAspectRatio="none" xlink:href="assets/images/slide_13_img_16.png" href="assets/images/slide_13_img_16.png" />
+        </g>
        </g>
       </g>
      </g>
